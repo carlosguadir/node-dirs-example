@@ -1,6 +1,6 @@
 # Dirs Command Shell
 
-Shell for action CRUD on dir tree
+Shell for action Create, Move, Delete and List on dir tree
 
 ## Getting started
 
