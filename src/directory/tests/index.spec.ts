@@ -11,6 +11,28 @@ describe( 'directory', () => {
       vegetables: {}, grains: {}
     } )
   } )
+
+  test( 'createDir nested dirs testing', () => {
+    createDir( 'photos/nested/dir/again' )
+    createDir( 'grains/nested/dir/again' )
+    createDir( 'fruits/apple/fuji/nested/deep/dir' )
+    expect( readStorageFile() ).toEqual( {
+      fruits: {
+        apple: {
+          fuji: {
+            nested: { deep: { dir: {} } }
+          }
+        },
+        orange: {}
+      },
+      photos: { nested: { dir: { again: {} } } },
+      vegetables: {},
+      grains: {
+        nested: { dir: { again: {} } }
+      }
+    } )
+  } )
+
   test( 'deleteDir testing', () => {
     deleteDir( 'fruits/apple/fuji' )
     deleteDir( 'fruits/orange' )

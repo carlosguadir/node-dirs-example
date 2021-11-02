@@ -5,7 +5,7 @@ import yargs, { Argv } from 'yargs'
 import { createDir, deleteDir, listDir, moveDir } from '../src/directory'
 import { writeStorageFile } from '../src/directory/storage/storage'
 
-const commands: Record<string, ( ( arg?: string ) => string | undefined ) | ( ( args: string, value?: Record<string, unknown> ) => string | undefined ) > = {
+const commands: Record<string, ( ( arg: string ) => unknown ) | ( ( path: string, value?: undefined | Record<string, unknown> ) => unknown ) > = {
   CREATE: createDir,
   LIST: listDir,
   MOVE: moveDir,

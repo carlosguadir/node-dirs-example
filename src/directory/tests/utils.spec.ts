@@ -15,5 +15,8 @@ describe( 'utils', () => {
     expect( findDir( readStorageFile(), `fruits/mango` ) ).toEqual(
       expect.objectContaining( { message: `mango does not exist` } )
     )
+    expect( findDir( readStorageFile(), `photos/mango/reflejo` ) ).toEqual(
+      expect.objectContaining( { message: `photos does not exist` } )
+    )
   } )
 } )

@@ -1,15 +1,21 @@
 import { readStorageFile, writeStorageFile } from './storage/storage'
 import { findDir } from './utils'
 
-export const createDir = ( path: string, value: undefined | Record<string, unknown> = {} ) => {
+export const createDir = ( path: string, value: undefined | Record<string, unknown> = undefined ) => {
   const directories = readStorageFile()
   const directoryPath = path.split( '/' )
   const newDirName = directoryPath.pop() as string
-  const { message, subdirs } = findDir( directories, directoryPath.join( `/` ) || newDirName )
-  if ( message && directoryPath.length > 0 ) {
-    return `Cannot find ${path} - ${ message }`
+  const { message, subdirs, position } = findDir( directories, directoryPath.join( `/` ) || newDirName )
+  value = { [ newDirName ]: value || {} }
+  if ( message ) {
+    const nestedToCreate = directoryPath.slice( position || 0, directoryPath.length )
+    nestedToCreate
+      .reverse()
+      .forEach( ( dir: string ) => {
+        value = { [dir]: value }
+      } )
   }
-  subdirs[ newDirName ] = value
+  Object.assign( subdirs, value )
   writeStorageFile( directories )
 }
 
