@@ -8,10 +8,6 @@ Shell for action CRUD on dir tree
 yarn install
 ```
 
-This command get alive endpoints and cron schedule.
-You can test it with postman for endpoints and also see logs events
-
-
 ## Run interactive shell
 > This enable a shell command line for execute line by line
 > 
