@@ -1,0 +1,24 @@
+{
+    "compilerOptions": {
+        "target": "ESNext",
+        "lib": ["ESNext"],
+        "module": "CommonJS",
+        "moduleResolution": "node",
+        "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "declaration": true,
+        "emitDeclarationOnly": true,
+        "preserveSymlinks": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "allowSyntheticDefaultImports": true,
+        "removeComments": true,
+        "sourceMap": false,
+        "outDir": "lib",
+        "experimentalDecorators": true,
+        "baseUrl": "."
+    },
+    "include": ["./**/*.ts", "./*.ts"]
+}
